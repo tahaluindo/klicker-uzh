@@ -91,6 +91,7 @@ function Klicker({ Component, pageProps, locale, messages }) {
         theme={{
           primaryBg: 'bg-uzh-blue-20',
           primaryBgHover: 'hover:bg-uzh-blue-20',
+          primaryBgHoverNavbar: 'hover:bg-uzh-blue-40',
           primaryBorder: 'border-uzh-blue-40',
           primaryBorderHover: 'hover:border-uzh-blue-40',
           primaryText: 'text-uzh-blue-100',

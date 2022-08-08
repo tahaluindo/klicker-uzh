@@ -1,9 +1,10 @@
-const { TailwindColorsUZH } = require('@uzh-bf/design-system/dist/constants')
+const { TailwindColorsUZH, TailwindAnimations } = require('@uzh-bf/design-system/dist/constants')
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/semantic-ui-react/dist/**/*.js'],
   theme: {
     extend: {
+      ...TailwindAnimations,
       screens: {
         print: { raw: 'print' },
         xl: '1280px',
