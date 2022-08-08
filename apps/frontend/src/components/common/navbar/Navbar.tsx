@@ -45,7 +45,7 @@ function Navbar({ actions, search, sidebarVisible, title, handleSidebarToggle }:
   const user = useContext(UserContext)
 
   return (
-    <Navigation>
+    <Navigation className="z-[100]">
       <Navigation.NavigationMenu position="left">
         <Link passHref href="/questions">
           <Navigation.LinkItem link="/questions" linkName="Questions" />
