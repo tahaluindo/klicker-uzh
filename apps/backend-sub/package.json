@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@klicker-uzh/backend-sub",
+  "version": "2.0.0-alpha.22",
+  "license": "AGPL-3.0",
+  "main": "dist/index.js",
+  "module": "dist/backend-sub.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "GraphQL"
+  ],
+  "scripts": {
+    "build": "dts build --entry GraphQL/index.ts",
+    "lint": "dts lint",
+    "size": "size-limit",
+    "dev": "NODE_ENV=development npm-run-all --parallel dev:dts dev:func",
+    "dev:dts": "dts watch --entry GraphQL/index.ts",
+    "test": "dts test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "engines": {
+    "node": "=18"
+  }
+}
