@@ -1,23 +1,36 @@
 import { LeaderboardEntry } from '@klicker-uzh/graphql/dist/ops'
+import Image from 'next/future/image'
 import { useMemo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { ParticipantOther } from './Participant'
 
-function SinglePodium({ username, avatar, score, className }) {
+function SinglePodium({
+  username,
+  avatar,
+  score,
+  className,
+  participantClassName,
+}) {
   return (
     <div
       className={twMerge(
-        'flex-1 md:border-b-4 bg-slate-300 md:border-slate-500',
+        'relative flex-1 md:border-b-4 bg-slate-300 md:border-slate-500',
         className
       )}
     >
       <ParticipantOther
-        className="bg-white shadow outline-slate-400"
+        className={twMerge(
+          'bg-white shadow outline-slate-400',
+          participantClassName
+        )}
         pseudonym={username}
         avatar={avatar}
         points={score ?? 0}
         withAvatar={!!avatar}
       />
+      <div className="absolute left-0 right-0 bottom-1 top-10">
+        <Image src="/medal.svg" fill />
+      </div>
     </div>
   )
 }
@@ -38,24 +51,27 @@ export function Podium({ leaderboard }: PodiumProps) {
   return (
     <div className="flex flex-col gap-4 md:items-end md:flex-row">
       <SinglePodium
-        className="order-2 h-[70px] md:order-1"
+        className="order-2 h-[80px] md:order-1"
         username={rank2?.username}
         avatar={rank2?.avatar}
         score={rank2?.score}
+        participantClassName="outline-2 outline-[#b4b4b4]"
       />
 
       <SinglePodium
-        className="order-1 h-[80px] md:order-2"
+        className="order-1 h-[90px] md:order-2"
         username={rank1?.username}
         avatar={rank1?.avatar}
         score={rank1?.score}
+        participantClassName="outline-2 outline-[#c9b037]"
       />
 
       <SinglePodium
-        className="order-3 h-[60px]"
+        className="order-3 h-[70px]"
         username={rank3?.username}
         avatar={rank3?.avatar}
         score={rank3?.score}
+        participantClassName="outline-2 outline-[#965A38]"
       />
     </div>
   )
